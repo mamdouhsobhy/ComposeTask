@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ComposeTask</string>
+    <string name="check_internet_connections">Check Internet Connection !</string>
+    <string name="title_activity_splash">ActivitySplash</string>
+    <string name="ok">OK</string>
+</resources>
