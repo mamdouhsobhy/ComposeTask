@@ -1,7 +1,9 @@
 package com.example.composetask.splash
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import com.example.composetask.authentication.ActivityAuthentication
 import com.example.composetask.core.presentation.base.BaseActivity
 import com.example.composetask.core.presentation.common.SharedPrefs
 import com.example.composetask.core.presentation.utilities.LocaleHelper
@@ -20,15 +22,9 @@ class ActivitySplash : BaseActivity() {
         LocaleHelper.onAttach(this)
         setContent {
             SplashScreen {
-//                if (sharedPrefs.isOnBoardingShowing()) {
-//                    val intent = Intent(this, MainActivity::class.java)
-//                    startActivity(intent)
-//                    finish()
-//                } else {
-//                    val intent = Intent(this, ActivityOnBoarding::class.java)
-//                    startActivity(intent)
-//                    finish()
-//                }
+                val intent = Intent(this, ActivityAuthentication::class.java)
+                startActivity(intent)
+                finish()
             }
         }
     }

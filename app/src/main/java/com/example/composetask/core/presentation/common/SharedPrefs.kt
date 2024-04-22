@@ -2,6 +2,8 @@ package com.example.composetask.core.presentation.common
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.composetask.authentication.presentation.login.validate.LoginRequest
+import com.google.gson.Gson
 
 @Suppress("UNCHECKED_CAST")
 class SharedPrefs(context: Context) {
@@ -14,17 +16,17 @@ class SharedPrefs(context: Context) {
     private val sharedPref: SharedPreferences =
         context.getSharedPreferences(PREF, Context.MODE_PRIVATE)
 
-//    fun saveUser(user: ModelNewLoginResponseRemote?) {
-//        put(SAVE_USER, Gson().toJson(user))
-//    }
-//
-//    fun getUser(): ModelNewLoginResponseRemote? {
-//        val data = get(SAVE_USER, String::class.java)
-//        if (data.isEmpty()) {
-//            return null
-//        }
-//        return Gson().fromJson(data, ModelNewLoginResponseRemote::class.java)
-//    }
+    fun saveUser(user: LoginRequest?) {
+        put(SAVE_USER, Gson().toJson(user))
+    }
+
+    fun getUser(): LoginRequest? {
+        val data = get(SAVE_USER, String::class.java)
+        if (data.isEmpty()) {
+            return null
+        }
+        return Gson().fromJson(data, LoginRequest::class.java)
+    }
 
     fun <T> get(key: String, clazz: Class<T>): T =
         when (clazz) {

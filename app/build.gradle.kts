@@ -19,7 +19,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_BASE_URL", "\"https://pastebin.com/\"")
+        buildConfigField("String", "API_BASE_URL", "\"https://run.mocky.io/\"")
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -72,6 +72,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     testImplementation("junit:junit:4.13.2")
+    testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
@@ -79,6 +80,15 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    //for unittest
+    testImplementation("org.mockito:mockito-core:2.11.0")
+    testImplementation("android.arch.core:core-testing:1.1.1")
+    testImplementation("com.google.truth:truth:1.1")
+    testImplementation("com.google.dagger:hilt-android-testing:2.28-alpha")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.28-alpha")
+    kaptTest("com.google.dagger:hilt-android-compiler:2.40.5")
+
+    //for jdk kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.10")
 
     // LiveData & ViewModel
@@ -88,8 +98,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
 
     // Room
-    implementation("androidx.room:room-runtime:2.3.0")
-    annotationProcessor("androidx.room:room-compiler:2.3.0")
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-rxjava2:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
 
     // Retrofit and its adapters and converters
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
